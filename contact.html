@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Louis BISERAY, élève BTS SIO SISR">
+    <meta name="auteur" content="Louis BISERAY">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Contact - Portfolio BTS SIO</title>
+</head>
+
+<body>
+    <nav class="sidebar">
+        <ul class="navbar-nav">
+            <li class="title">Mon Portfolio</li>
+            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-2"></i>Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
+            <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
+            <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
+            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="contact" class="content-section contact-page">
+        <div class="contact-header fade-in">
+            <h2>Me Contacter</h2>
+            <div class="separator"></div>
+            <p class="intro-text">N'hésitez pas à me contacter pour toute opportunité de stage, d'alternance ou simplement pour échanger sur le domaine des réseaux et de la cybersécurité.</p>
+        </div>
+
+        <div class="contact-info-section fade-in delay-1">
+            <h3 class="section-title">Mes Coordonnées</h3>
+            <div class="separator"></div>
+            <p class="section-desc">Voici les différents moyens pour me joindre :</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card slide-up">
+                    <div class="icon-circle">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <h5>Email</h5>
+                    <a class="text-decoration-none" href="mailto:louisbiseray@gmail.com">louisbiseray@gmail.com</a>
+                    <span class="contact-note d-block">Réponse sous 24h</span>
+                </div>
+                
+                <div class="contact-card slide-up delay-1">
+                    <div class="icon-circle">
+                        <i class="bi bi-linkedin"></i>
+                    </div>
+                    <h5>LinkedIn</h5>
+                    <a class="text-decoration-none" href="https://www.linkedin.com/in/louis-biseray-5b55ba325/">linkedin.com/in/louisbiseray</a>
+                    <span class="contact-note d-block">Connectons-nous !</span>
+                </div>
+                
+                <div class="contact-card slide-up delay-2">
+                    <div class="icon-circle">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <h5>Localisation</h5>
+                    <p>Tours, France</p>
+                    <span class="contact-note d-block">Indre et Loire</span>
+                </div>
+                
+                <div class="contact-card slide-up delay-3">
+                    <div class="icon-circle">
+                        <i class="bi bi-github"></i>
+                    </div>
+                    <h5>GitHub</h5>
+                    <a class="text-decoration-none" href="https://github.com/louisbiseray-bot">github.com/louisbiseray-bot</a>
+                    <span class="contact-note d-block">Voir mes projets</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="contact-form-section fade-in delay-2">
+            <h3 class="section-title">Envoyer un Message</h3>
+            <div class="separator"></div>
+            <p class="section-desc">Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
+            
+            <div class="form-container slide-up">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom"><i class="bi bi-person"></i> Nom</label>
+                            <input type="text" class="form-control" id="nom" placeholder="Votre nom complet">
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="bi bi-envelope"></i> Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sujet"><i class="bi bi-chat-left-text"></i> Sujet</label>
+                        <input type="text" class="form-control" id="sujet" placeholder="Objet de votre message">
+                    </div>
+                    <div class="form-group">
+                        <label for="message"><i class="bi bi-pencil"></i> Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Détaillez votre demande ici..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit pulse-hover">
+                        <i class="bi bi-send"></i> Envoyer le message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="availability-section fade-in delay-3">
+            <h3 class="section-title">Disponibilités</h3>
+            <div class="separator"></div>
+            <p class="section-desc">Je suis actuellement à la recherche d'opportunités professionnelles :</p>
+            
+            <div class="availability-cards">
+                <div class="avail-card slide-up">
+                    <i class="bi bi-briefcase"></i>
+                    <h4>Stage</h4>
+                    <p>À partir 2026<br>Durée : 6 à 8 semaines</p>
+                </div>
+                <div class="avail-card slide-up delay-1">
+                    <i class="bi bi-building"></i>
+                    <h4>Alternance</h4>
+                    <p>À partir de septembre 2027<br></p>
+                </div>
+                <div class="avail-card slide-up delay-2">
+                    <i class="bi bi-clock"></i>
+                    <h4>Emploi</h4>
+                    <p>À l'issue du BTS<br>Septembre 202</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="response-section fade-in">
+            <div class="response-box">
+                <i class="bi bi-info-circle"></i>
+                <div>
+                    <h4>Délai de réponse</h4>
+                    <p>Je m'engage à répondre à tous les messages dans un délai de 48 heures ouvrées. Pour les demandes urgentes concernant des opportunités professionnelles, n'hésitez pas à me contacter directement par email ou téléphone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Louis BISERAY - Portfolio BTS SIO SISR</p>
+    </footer>
+</body>
+
+</html>
