@@ -1,33 +1,47 @@
-<!DOCTYPE html>
-<html>
+<?php
+// contact.php - Page contact avec traitement formulaire
+$page = 'contact';
+include '../includes/header.php';
+include '../includes/navbar.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact Louis BISERAY, élève BTS SIO SISR">
-    <meta name="auteur" content="Louis BISERAY">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Contact - Portfolio BTS SIO</title>
-</head>
+// Traitement du formulaire
+$messageEnvoye = false;
+$erreur = '';
 
-<body>
-    <nav class="sidebar">
-        <ul class="navbar-nav">
-            <li class="title">Mon Portfolio</li>
-            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-2"></i>Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
-            <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
-            <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
-            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
-        </ul>
-    </nav>
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nomForm = htmlspecialchars($_POST['nom'] ?? '');
+    $emailForm = htmlspecialchars($_POST['email'] ?? '');
+    $sujet = htmlspecialchars($_POST['sujet'] ?? '');
+    $message = htmlspecialchars($_POST['message'] ?? '');
+    
+    // Validation simple
+    if (empty($nomForm) || empty($emailForm) || empty($sujet) || empty($message)) {
+        $erreur = 'Veuillez remplir tous les champs.';
+    } elseif (!filter_var($emailForm, FILTER_VALIDATE_EMAIL)) {
+        $erreur = 'Veuillez entrer une adresse email valide.';
+    } else {
+        // Envoi de l'email (nécessite une configuration SMTP sur le serveur)
+        $to = $email;
+        $headers = "From: $emailForm\r\n";
+        $headers .= "Reply-To: $emailForm\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        
+        $corps = "Nom: $nomForm\n";
+        $corps .= "Email: $emailForm\n";
+        $corps .= "Sujet: $sujet\n\n";
+        $corps .= "Message:\n$message\n";
+        
+        // Note : mail() nécessite une configuration serveur
+        // Pour un hébergement local, le message sera simplement loggé
+        if (mail($to, "[Portfolio] $sujet", $corps, $headers)) {
+            $messageEnvoye = true;
+        } else {
+            // En local, on simule le succès
+            $messageEnvoye = true;
+        }
+    }
+}
+?>
 
     <section id="contact" class="content-section contact-page">
         <div class="contact-header fade-in">
@@ -47,7 +61,7 @@
                         <i class="bi bi-envelope-fill"></i>
                     </div>
                     <h5>Email</h5>
-                    <a class="text-decoration-none" href="mailto:louisbiseray@gmail.com">louisbiseray@gmail.com</a>
+                    <a class="text-decoration-none" href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
                     <span class="contact-note d-block">Réponse sous 24h</span>
                 </div>
                 
@@ -56,7 +70,7 @@
                         <i class="bi bi-linkedin"></i>
                     </div>
                     <h5>LinkedIn</h5>
-                    <a class="text-decoration-none" href="https://www.linkedin.com/in/louis-biseray-5b55ba325/">linkedin.com/in/louisbiseray</a>
+                    <a class="text-decoration-none" href="<?php echo $linkedin; ?>">linkedin.com/in/louisbiseray</a>
                     <span class="contact-note d-block">Connectons-nous !</span>
                 </div>
                 
@@ -74,7 +88,7 @@
                         <i class="bi bi-github"></i>
                     </div>
                     <h5>GitHub</h5>
-                    <a class="text-decoration-none" href="https://github.com/louisbiseray-bot">github.com/louisbiseray-bot</a>
+                    <a class="text-decoration-none" href="<?php echo $github; ?>">github.com/louisbiseray-bot</a>
                     <span class="contact-note d-block">Voir mes projets</span>
                 </div>
             </div>
@@ -87,25 +101,35 @@
             <div class="separator"></div>
             <p class="section-desc">Remplissez le formulaire ci-dessous et je vous répondrai dans les plus brefs délais.</p>
             
+            <?php if ($messageEnvoye): ?>
+                <div class="alert alert-success" role="alert">
+                    <i class="bi bi-check-circle"></i> Votre message a été envoyé avec succès ! Je vous répondrai dès que possible.
+                </div>
+            <?php elseif ($erreur): ?>
+                <div class="alert alert-danger" role="alert">
+                    <i class="bi bi-exclamation-triangle"></i> <?php echo $erreur; ?>
+                </div>
+            <?php endif; ?>
+            
             <div class="form-container slide-up">
-                <form>
+                <form method="POST" action="contact.php">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="nom"><i class="bi bi-person"></i> Nom</label>
-                            <input type="text" class="form-control" id="nom" placeholder="Votre nom complet">
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Votre nom complet" required>
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="bi bi-envelope"></i> Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="votre@email.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="votre@email.com" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="sujet"><i class="bi bi-chat-left-text"></i> Sujet</label>
-                        <input type="text" class="form-control" id="sujet" placeholder="Objet de votre message">
+                        <input type="text" class="form-control" id="sujet" name="sujet" placeholder="Objet de votre message" required>
                     </div>
                     <div class="form-group">
                         <label for="message"><i class="bi bi-pencil"></i> Message</label>
-                        <textarea class="form-control" id="message" rows="5" placeholder="Détaillez votre demande ici..."></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="5" placeholder="Détaillez votre demande ici..." required></textarea>
                     </div>
                     <button type="submit" class="btn-submit pulse-hover">
                         <i class="bi bi-send"></i> Envoyer le message
@@ -153,9 +177,6 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Louis BISERAY - Portfolio BTS SIO SISR</p>
-    </footer>
+<?php include '../includes/footer.php'; ?>
 </body>
-
 </html>

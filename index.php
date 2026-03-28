@@ -1,38 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Louis BISERAY, élève BTS SIO SISR">
-    <meta name="auteur" content="Louis BISERAY">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Portfolio BTS SIO</title>
-</head>
-
-<body>
-    <nav class="sidebar">
-        <ul class="navbar-nav">
-            <li class="title">Mon Portfolio</li>
-            <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door me-2"></i>Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
-            <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
-            <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
-            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
-        </ul>
-    </nav>
+<?php
+// index.php - Page d'accueil
+$page = 'index';
+include 'includes/header.php';
+include 'includes/navbar.php';
+?>
 
     <header class="hero-section fade-in">
         <img src="image/photo.png" alt="Photo" class="profile-img">
         <div class="hero-text">
-            <h1>Louis BISERAY</h1>
+            <h1><?php echo $nom; ?></h1>
             <div class="separator"></div>
             <p>Élève BTS SIO - Option SISR</p>
             <p class="subtitle">Passionné par les réseaux et la cybersécurité</p>
@@ -43,7 +19,7 @@
         <div class="accueil-header fade-in delay-1">
             <h2>Bienvenue sur mon Portfolio</h2>
             <div class="separator"></div>
-            <p class="intro-text">Bienvenue sur mon portfolio professionnel ! Je suis Louis BISERAY, étudiant en BTS SIO (Services Informatiques aux Organisations) option SISR (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
+            <p class="intro-text">Bienvenue sur mon portfolio professionnel ! Je suis <?php echo $nom; ?>, étudiant en BTS SIO (Services Informatiques aux Organisations) option SISR (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
         </div>
         
         <div class="accueil-content fade-in delay-2">
@@ -56,23 +32,23 @@
             <p class="section-desc">Cliquez sur les liens ci-dessous pour découvrir mon parcours et mes compétences :</p>
             
             <div class="links-grid">
-                <a href="presentation.html" class="quick-link slide-up">
+                <a href="pages/presentation.php" class="quick-link slide-up">
                     <i class="bi bi-person"></i>
                     <span>Ma présentation</span>
                 </a>
-                <a href="parcours.html" class="quick-link slide-up delay-1">
+                <a href="pages/parcours.php" class="quick-link slide-up delay-1">
                     <i class="bi bi-mortarboard"></i>
                     <span>Mon parcours</span>
                 </a>
-                <a href="competences.html" class="quick-link slide-up delay-2">
+                <a href="pages/competences.php" class="quick-link slide-up delay-2">
                     <i class="bi bi-tools"></i>
                     <span>Mes compétences</span>
                 </a>
-                <a href="projets.html" class="quick-link slide-up delay-3">
+                <a href="pages/projets.php" class="quick-link slide-up delay-3">
                     <i class="bi bi-folder"></i>
                     <span>Mes projets</span>
                 </a>
-                <a href="contact.html" class="quick-link slide-up">
+                <a href="pages/contact.php" class="quick-link slide-up">
                     <i class="bi bi-envelope"></i>
                     <span>Me contacter</span>
                 </a>
@@ -105,9 +81,6 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Louis BISERAY - Portfolio BTS SIO SISR</p>
-    </footer>
+<?php include 'includes/footer.php'; ?>
 </body>
-
 </html>
