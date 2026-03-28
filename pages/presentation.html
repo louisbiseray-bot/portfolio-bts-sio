@@ -1,9 +1,31 @@
-<?php
-// presentation.php - Page présentation
-$page = 'presentation';
-include '../includes/header.php';
-include '../includes/navbar.php';
-?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Présentation de Louis BISERAY, élève BTS SIO SISR">
+    <meta name="auteur" content="Louis BISERAY">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Présentation - Portfolio BTS SIO</title>
+</head>
+<body>
+    <nav class="sidebar">
+        <ul class="navbar-nav">
+            <li class="title">Mon Portfolio</li>
+            <li class="nav-item"><a class="nav-link" href="../index.html"><i class="bi bi-house-door me-2"></i>Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
+            <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
+            <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
+            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+        </ul>
+    </nav>
 
     <section id="presentation" class="content-section presentation-page">
         <div class="page-header fade-in">
@@ -18,7 +40,7 @@ include '../includes/navbar.php';
             
             <div class="about-content slide-up">
                 <div class="about-text">
-                    <p>Je m'appelle <strong><?php echo $nom; ?></strong> et je suis actuellement en formation <strong>BTS SIO</strong> (Services Informatiques aux Organisations) avec l'option <strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
+                    <p>Je m'appelle <strong>Louis BISERAY</strong> et je suis actuellement en formation <strong>BTS SIO</strong> (Services Informatiques aux Organisations) avec l'option <strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux).</p>
                     
                     <p>Passionné par les technologies de l'information depuis mon plus jeune âge, j'ai choisi de m'orienter vers le domaine des réseaux et de la cybersécurité. Cette formation me permet d'acquérir des compétences solides en administration système et réseau.</p>
                     
@@ -134,6 +156,8 @@ include '../includes/navbar.php';
         </div>
     </section>
 
-<?php include '../includes/footer.php'; ?>
+    <footer class="footer">
+        <p>&copy; 2025 Louis BISERAY - Portfolio BTS SIO SISR</p>
+    </footer>
 </body>
 </html>
