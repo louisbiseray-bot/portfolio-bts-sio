@@ -8,7 +8,7 @@ body {
     position: fixed;
     top: 20px;
     left: 20px;
-    height: 95%;
+    height: 95vh;
     width: 17%;
     background-color: white;
     padding: 20px 0;
@@ -16,14 +16,17 @@ body {
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     border: 1px solid #e0e7ff;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar .nav-link {
-    color: #333;
+    color: #475569; /* Gris pro plutôt que noir */;
     padding: 15px 15px;
+    gap: 12px;
     transition: all 0.3s;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1rem;
     border-radius: 8px;
     margin: 4px 12px;
     display: flex;
@@ -41,16 +44,41 @@ body {
     padding-bottom: 10px;
     padding-left: 20px;
     font-weight: 600;
-    font-size: 1.6rem;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f5f9;
 
 }
 
+.sidebar .icon-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;              
+    margin-top: auto;       
+    list-style: none;
+    padding-right: 50px;     
+    border-top: 1px solid #e0e7ff;
+    width: 100%;
+}
+
+.sidebar .icon-nav i {
+    font-size: 1.2rem;
+    color: #94a3b8;
+    transition: all 0.2s ease-in-out;
+}
+
+.sidebar .icon-nav i:hover {
+    color: #2563eb;
+    transform: translateY(-3px);
+}
+
 .sidebar .nav-link:hover {
-    background-color: #e0e7ff;
+    background-color: #f8fafc;
     color: #2563eb;
     text-decoration: none;
     border-radius: 8px;
+    padding-left: 20px;
 }
 
 .sidebar .nav-link:hover i {
@@ -65,6 +93,20 @@ body {
 .sidebar .nav-item {
     width: auto;
     margin: 0;
+}
+
+.sidebar .nav-link.active {
+    background-color: #eff6ff;
+    color: #2563eb;            
+    font-weight: 700;          
+    border-left: 4px solid #2563eb; 
+    border-radius: 0 8px 8px 0;    
+    margin-left: 0;                
+}
+
+
+.sidebar .nav-link.active i {
+    color: #2563eb;
 }
 
 img {
