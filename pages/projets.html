@@ -24,8 +24,13 @@
             <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
             <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
             <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
-            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
+            <li class="nav-item"><a class="nav-link active" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
             <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+        </ul>
+        <ul class="icon-nav">
+            <li><a class="nav-link" href="https://www.linkedin.com/in/louis-biseray-5b55ba325/"><i class="bi bi-linkedin"></i></a></li>
+            <li><a class="nav-link" href="mailto:louisbiseray@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
+            <li><a class="nav-link" href="https://github.com/louisbiseray-bot"><i class="bi bi-github"></i></a></li>
         </ul>
     </nav>
 
@@ -49,16 +54,37 @@
                 </div>
                 <h4>Infrastructure Réseau Complète</h4>
                 <p class="project-desc">Mise en place d'un réseau d'entreprise avec architecture hiérarchique et segmentation VLAN.</p>
-                <ul class="project-list">
-                    <li>Configuration de switchs et routeurs Cisco</li>
-                    <li>Mise en place de VLAN et routage inter-VLAN</li>
-                    <li>Configuration du protocole DHCP</li>
-                    <li>Intégration d'un serveur DNS</li>
-                    <li>Tests de connectivité et dépannage</li>
-                </ul>
+                <div class="project-details">
+                    <div class="detail-section">
+                        <h5><i class="bi bi-gear"></i> Objectifs</h5>
+                        <p>Créer une infrastructure réseau scalable pour une PME avec 3 départements (IT, Ventes, Admin) en assurant isolation et sécurité.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-lightning"></i> Défis techniques</h5>
+                        <ul>
+                            <li>Configuration du routage inter-VLAN avec protocole OSPF</li>
+                            <li>Mise en place de listes de contrôle d'accès (ACL)</li>
+                            <li>Optimisation des temps de convergence OSPF</li>
+                        </ul>
+                    </div>
+                    <ul class="project-list">
+                        <li>Configuration de switchs Cisco Catalyst et routeurs ISR</li>
+                        <li>Mise en place de 4 VLANs (IT, Ventes, Admin, Guests)</li>
+                        <li>Configuration du protocole de routage OSPF</li>
+                        <li>Intégration d'un serveur DNS/DHCP Windows</li>
+                        <li>Sécurisation avec ACLs étendues</li>
+                        <li>Tests de connectivité et dépannage avancé</li>
+                    </ul>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-trophy"></i> Résultats</h5>
+                        <p>Réduction de 40% du trafic broadcast, isolation complète des départements, temps de convergence OSPF < 2s.</p>
+                    </div>
+                </div>
                 <div class="project-tech">
-                    <span class="tech-badge">Cisco</span>
+                    <span class="tech-badge">Cisco IOS</span>
+                    <span class="tech-badge">OSPF</span>
                     <span class="tech-badge">VLAN</span>
+                    <span class="tech-badge">ACL</span>
                     <span class="tech-badge">Packet Tracer</span>
                 </div>
             </div>
@@ -69,17 +95,38 @@
                 </div>
                 <h4>Active Directory & GPO</h4>
                 <p class="project-desc">Déploiement d'un domaine Windows Server avec gestion centralisée des utilisateurs et stratégies de groupe.</p>
-                <ul class="project-list">
-                    <li>Installation et configuration d'Active Directory</li>
-                    <li>Création d'OU et gestion des utilisateurs</li>
-                    <li>Déploiement de GPO (stratégies de groupe)</li>
-                    <li>Configuration des partages réseau et permissions</li>
-                    <li>Sauvegarde et restauration AD</li>
-                </ul>
+                <div class="project-details">
+                    <div class="detail-section">
+                        <h5><i class="bi bi-gear"></i> Objectifs</h5>
+                        <p>Centraliser l'authentification et la gestion des 50+ utilisateurs avec application automatique des politiques de sécurité.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-lightning"></i> Défis techniques</h5>
+                        <ul>
+                            <li>Migration depuis un environnement workgroup</li>
+                            <li>Délégation des permissions administratives</li>
+                            <li>Optimisation des temps de connexion GPO</li>
+                        </ul>
+                    </div>
+                    <ul class="project-list">
+                        <li>Installation de Windows Server 2022 et AD DS</li>
+                        <li>Création de structure OU par département</li>
+                        <li>Déploiement de 15+ GPO (sécurité, bureautique)</li>
+                        <li>Configuration DFS pour partages redondants</li>
+                        <li>Mise en place de RODC pour sites distants</li>
+                        <li>Scripts PowerShell pour automatisation</li>
+                    </ul>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-trophy"></i> Résultats</h5>
+                        <p>Temps de connexion réduits de 60%, gestion centralisée 100%, sauvegardes automatiques avec RTO < 30min.</p>
+                    </div>
+                </div>
                 <div class="project-tech">
-                    <span class="tech-badge">Windows Server</span>
+                    <span class="tech-badge">Windows Server 2022</span>
                     <span class="tech-badge">Active Directory</span>
                     <span class="tech-badge">GPO</span>
+                    <span class="tech-badge">PowerShell</span>
+                    <span class="tech-badge">DFS</span>
                 </div>
             </div>
             
@@ -89,17 +136,37 @@
                 </div>
                 <h4>Virtualisation d'Infrastructure</h4>
                 <p class="project-desc">Déploiement d'infrastructure virtualisée pour optimiser les ressources matérielles.</p>
-                <ul class="project-list">
-                    <li>Mise en place de VMware ESXi / VirtualBox</li>
-                    <li>Création et gestion de machines virtuelles</li>
-                    <li>Configuration du réseau virtuel</li>
-                    <li>Snapshots et sauvegardes VM</li>
-                    <li>Templates et clones</li>
-                </ul>
+                <div class="project-details">
+                    <div class="detail-section">
+                        <h5><i class="bi bi-gear"></i> Objectifs</h5>
+                        <p>Consolider 10 serveurs physiques sur 3 hôtes virtuels avec haute disponibilité et économie d'énergie.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-lightning"></i> Défis techniques</h5>
+                        <ul>
+                            <li>Migration sans interruption de service</li>
+                            <li>Configuration du clustering vMotion</li>
+                            <li>Optimisation des performances I/O</li>
+                        </ul>
+                    </div>
+                    <ul class="project-list">
+                        <li>Déploiement VMware vSphere 7.0 avec ESXi</li>
+                        <li>Configuration de vCenter pour gestion centralisée</li>
+                        <li>Mise en place de vSAN pour stockage partagé</li>
+                        <li>Création de templates Windows/Linux</li>
+                        <li>Configuration vMotion et DRS</li>
+                        <li>Sauvegarde Veeam avec rétention 30 jours</li>
+                    </ul>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-trophy"></i> Résultats</h5>
+                        <p>Réduction de 70% des coûts énergétiques, consolidation 10:1, temps de provisionnement VM < 5min.</p>
+                    </div>
+                </div>
                 <div class="project-tech">
-                    <span class="tech-badge">VMware</span>
-                    <span class="tech-badge">VirtualBox</span>
-                    <span class="tech-badge">Proxmox</span>
+                    <span class="tech-badge">VMware vSphere</span>
+                    <span class="tech-badge">vCenter</span>
+                    <span class="tech-badge">vSAN</span>
+                    <span class="tech-badge">Veeam</span>
                 </div>
             </div>
             
@@ -108,17 +175,36 @@
                     <i class="bi bi-shield-lock"></i>
                 </div>
                 <h4>Sécurisation Réseau</h4>
-                <p class="project-desc">Implémentation de mesures de sécurité pour protéger l'infrastructure réseau.</p>
-                <ul class="project-list">
-                    <li>Configuration de pare-feu (pfSense/Cisco ASA)</li>
-                    <li>Mise en place de VPN site-à-site et client-à-site</li>
-                    <li>Configuration d'ACL et filtrage</li>
-                    <li>Audit de sécurité et hardening</li>
-                    <li>Surveillance et logs</li>
-                </ul>
+                <p class="project-desc">Architecture de sécurité complète avec firewall, DMZ, portail captif et ACL pour protection multicouche.</p>
+                <div class="project-details">
+                    <div class="detail-section">
+                        <h5><i class="bi bi-gear"></i> Objectifs</h5>
+                        <p>Mettre en place une architecture de sécurité en profondeur avec segmentation, contrôle d'accès et surveillance continue.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-lightning"></i> Défis techniques</h5>
+                        <ul>
+                            <li>Configuration fine des règles firewall et ACL</li>
+                            <li>Mise en place DMZ isolée pour services publics</li>
+                            <li>Déploiement portail captif avec authentification</li>
+                            <li>Équilibrage sécurité vs performance</li>
+                        </ul>
+                    </div>
+                    <ul class="project-list">
+                        <li><strong>Firewall pfSense</strong> : Configuration avancée avec règles de filtrage, NAT, et anti-DDoS</li>
+                        <li><strong>DMZ (Zone Démilitarisée)</strong> : Isolation des serveurs web avec règles d'accès restrictives</li>
+                        <li><strong>Portail Captif</strong> : Authentification obligatoire pour accès Wi-Fi avec redirection forcée</li>
+                        <li><strong>ACL (Listes Contrôle d'Accès)</strong> : Filtrage granulaire par VLAN et protocoles</li>
+                    </ul>
+                    <div class="detail-section">
+                        <h5><i class="bi bi-trophy"></i> Résultats</h5>
+                        <p>Blocage de 95% des menaces, segmentation complète des accès, temps de réponse < 15min, conformité RGPD assurée.</p>
+                    </div>
+                </div>
                 <div class="project-tech">
                     <span class="tech-badge">pfSense</span>
-                    <span class="tech-badge">VPN</span>
+                    <span class="tech-badge">DMZ</span>
+                    <span class="tech-badge">Portail Captif</span>
                     <span class="tech-badge">ACL</span>
                 </div>
             </div>
@@ -126,7 +212,91 @@
 
         <div class="separator-line"></div>
 
-        <div class="methodo-section fade-in delay-2">
+        <div class="current-projects-section fade-in delay-2">
+            <h3 class="section-title">Réalisations</h3>
+            <div class="separator"></div>
+            <p class="section-desc">Mes projets techniques complets avec documentation détaillée et mise en œuvre concrète :</p>
+            
+            <div class="current-projects-grid">
+                <div class="current-project-card slide-up">
+                    <div class="project-logo">
+                        <img src="../image/logo_millenuits.png" alt="Logo Millenuits" class="project-logo-img">
+                    </div>
+                    <div class="project-info">
+                        <h4>Millenuits</h4>
+                        <p class="project-desc">Projet complet de refonte d'infrastructure pour l'entreprise Mille Nuits avec segmentation réseau, modernisation du parc et sécurisation des services.</p>
+                        
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="bi bi-diagram-3"></i>
+                                <span>Infrastructure réseau</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-server"></i>
+                                <span>Services AD/DHCP</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="bi bi-book"></i>
+                                <span>Documentation MkDocs</span>
+                            </div>
+                        </div>
+                        
+                        <div class="project-status">
+                            <span class="status-badge completed">Finalisé</span>
+                            <span class="progress-text">100% complété</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <a href="https://ap-bts-sio-louis.github.io/millenuits/" target="_blank" class="project-link primary">
+                                <i class="bi bi-book"></i> Documentation technique
+                            </a>
+                            <a href="https://github.com/AP-BTS-SIO-Louis/millenuits" target="_blank" class="project-link secondary">
+                                <i class="bi bi-github"></i> Dépôt Git
+                            </a>
+                        </div>
+                        
+                        <div class="project-details">
+                            <div class="detail-section">
+                                <h5><i class="bi bi-gear"></i> Contexte et objectifs</h5>
+                                <p>Croissance importante de l'entreprise Mille Nuits nécessitant la modernisation de l'infrastructure suite à des incidents de sécurité. Objectifs : segmentation réseau, remplacement du parc vieillissant, sécurisation des accès et structuration de la gestion des services.</p>
+                            </div>
+                            <div class="detail-section">
+                                <h5><i class="bi bi-tools"></i> Technologies et solutions</h5>
+                                <div class="tech-list">
+                                    <span class="tech-badge">Cisco IOS</span>
+                                    <span class="tech-badge">Windows Server 2019</span>
+                                    <span class="tech-badge">Active Directory</span>
+                                    <span class="tech-badge">Linux Debian</span>
+                                    <span class="tech-badge">MkDocs</span>
+                                    <span class="tech-badge">FOG Project</span>
+                                    <span class="tech-badge">Docker</span>
+                                    <span class="tech-badge">NAS</span>
+                                </div>
+                            </div>
+                            <div class="detail-section">
+                                <h5><i class="bi bi-list-check"></i> 4 Situations Professionnelles</h5>
+                                <p><strong>SP1</strong> : Gestion infrastructure réseau (VLAN, routage, Wi-Fi sécurisé)<br>
+                                <strong>SP2</strong> : Gestion parc informatique (FOG, Windows 11, ticketing)<br>
+                                <strong>SP3</strong> : Services AD/DHCP (contrôleur de domaine, NAS)<br>
+                                <strong>SP4</strong> : Espace développement (DMZ Docker, portail captif)</p>
+                            </div>
+                            <div class="detail-section">
+                                <h5><i class="bi bi-file-text"></i> Documentation</h5>
+                                <p>Documentation technique complète générée avec MkDocs, incluant procédures d'installation, configurations, schémas topologiques et guides de maintenance. Déploiement automatisé via GitHub Actions.</p>
+                            </div>
+                            <div class="detail-section">
+                                <h5><i class="bi bi-trophy"></i> Compétences validées</h5>
+                                <p>Gestion patrimoine informatique, conception infrastructure, sécurité cybersécurité, déploiement et documentation technique selon référentiel BTS SIO.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="methodo-section fade-in delay-3">
             <h3 class="section-title">Ma Méthodologie</h3>
             <div class="separator"></div>
             <div class="methodo-grid">
