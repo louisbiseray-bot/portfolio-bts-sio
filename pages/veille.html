@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Veille informatique - Flux RSS MAGIT et ITCONNECT">
+    <meta name="auteur" content="Louis BISERAY">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <title>Veille Informatique - Portfolio BTS SIO</title>
+</head>
+<body>
+    <canvas id="particles-canvas"></canvas>
+    
+    <nav class="sidebar">
+        <ul class="navbar-nav">
+            <li class="title">Mon Portfolio</li>
+            <li class="nav-item"><a class="nav-link" href="../index.html"><i class="bi bi-house-door me-2"></i>Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="presentation.html"><i class="bi bi-person me-2"></i>Présentation</a></li>
+            <li class="nav-item"><a class="nav-link" href="parcours.html"><i class="bi bi-mortarboard me-2"></i>Parcours</a></li>
+            <li class="nav-item"><a class="nav-link" href="competences.html"><i class="bi bi-tools me-2"></i>Compétences</a></li>
+            <li class="nav-item"><a class="nav-link" href="projets.html"><i class="bi bi-folder me-2"></i>Projets</a></li>
+            <li class="nav-item"><a class="nav-link active" href="veille.html"><i class="bi bi-newspaper me-2"></i>Veille</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope me-2"></i>Contact</a></li>
+        </ul>
+        <ul class="icon-nav">
+            <li><a class="nav-link" href="https://www.linkedin.com/in/louis-biseray-5b55ba325/"><i class="bi bi-linkedin"></i></a></li>
+            <li><a class="nav-link" href="mailto:louisbiseray@gmail.com"><i class="bi bi-envelope-fill"></i></a></li>
+            <li><a class="nav-link" href="https://github.com/louisbiseray-bot"><i class="bi bi-github"></i></a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section fade-in">
+        <div class="hero-text">
+            <h1>Veille Informatique</h1>
+            <div class="separator"></div>
+            <p>Suivi des dernières actualités</p>
+            <p class="subtitle">Flux RSS de MAGIT et ITCONNECT</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="veille-header fade-in delay-1">
+            <h2>Ma Veille Technologique</h2>
+            <p class="intro-text">Restez informé des dernières tendances et actualités en informatique grâce à mes flux RSS synchonisés de MAGIT et ITCONNECT.</p>
+        </div>
+
+        <div class="veille-controls fade-in delay-2">
+            <button id="refreshBtn" class="btn btn-primary me-2">
+                <i class="bi bi-arrow-clockwise me-2"></i>Actualiser
+            </button>
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="bi bi-funnel me-1"></i>Tous
+                </button>
+                <button class="filter-btn" data-filter="magit">
+                    <i class="bi bi-rss me-1"></i>MAGIT
+                </button>
+                <button class="filter-btn" data-filter="itconnect">
+                    <i class="bi bi-rss me-1"></i>ITCONNECT
+                </button>
+            </div>
+        </div>
+
+        <div class="veille-container">
+            <div id="loading" class="loading-spinner fade-in">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Chargement...</span>
+                </div>
+                <p>Chargement des flux RSS...</p>
+            </div>
+            
+            <div id="articles-container" class="articles-grid" style="display: none;">
+                <!-- Les articles seront insérés ici par JavaScript -->
+            </div>
+
+            <div id="error-message" class="alert alert-warning" style="display: none;">
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                <span id="error-text"></span>
+            </div>
+        </div>
+
+        <div class="separator-line"></div>
+
+        <div class="veille-info fade-in delay-3">
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="bi bi-diagram-3"></i>
+                    <h4>MAGIT</h4>
+                    <p>Actualités et ressources pour les professionnels de l'informatique</p>
+                </div>
+                <div class="info-card">
+                    <i class="bi bi-diagram-3"></i>
+                    <h4>ITCONNECT</h4>
+                    <p>Veille technologique et tendances IT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Louis BISERAY - Portfolio BTS SIO SISR</p>
+    </footer>
+
+    <script src="../js/particles.js"></script>
+    <script src="../js/veille.js"></script>
+</body>
+</html>
