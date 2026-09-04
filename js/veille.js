@@ -92,45 +92,81 @@ async function loadFeeds() {
 
 /**
  * Récupère un flux RSS et le parse
+ * Utilise plusieurs proxies en fallback pour éviter les problèmes CORS
  */
 async function fetchRSSFeed(rssUrl, feedKey, feedName) {
-    // Utiliser un service CORS proxy pour éviter les problèmes CORS
-    const corsProxy = 'https://api.allorigins.win/get?url=';
-    const url = corsProxy + encodeURIComponent(rssUrl);
+    const proxies = [
+        (url) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+        (url) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+        (url) => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`
+    ];
 
-    const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(`Erreur HTTP ${response.status}`);
-    }
+    let lastError = null;
 
-    const data = await response.json();
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
+    for (const proxyFn of proxies) {
+        try {
+            const proxyUrl = proxyFn(rssUrl);
+            const response = await fetch(proxyUrl, {
+                headers: {
+                    'Accept': 'application/xml, text/xml',
+                }
+            });
 
-    if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
-        throw new Error('Erreur de parsing XML');
-    }
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP ${response.status}`);
+            }
 
-    const items = xmlDoc.getElementsByTagName('item');
-    const articles = [];
+            let xmlText;
+            
+            // Vérifier le type de contenu de la réponse
+            const contentType = response.headers.get('content-type');
+            
+            if (proxyUrl.includes('allorigins')) {
+                // Pour allorigins, le contenu est enveloppé dans un JSON
+                const data = await response.json();
+                xmlText = data.contents;
+            } else {
+                // Pour les autres proxies, c'est directement du XML
+                xmlText = await response.text();
+            }
 
-    for (let i = 0; i < items.length; i++) {
-        const item = items[i];
-        const article = {
-            title: getXMLText(item, 'title'),
-            description: getXMLText(item, 'description') || getXMLText(item, 'content:encoded'),
-            link: getXMLText(item, 'link'),
-            pubDate: getXMLText(item, 'pubDate') || getXMLText(item, 'updated'),
-            source: feedName,
-            sourceKey: feedKey
-        };
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
 
-        if (article.title && article.link) {
-            articles.push(article);
+            if (xmlDoc.getElementsByTagName('parsererror').length > 0) {
+                throw new Error('Erreur de parsing XML');
+            }
+
+            const items = xmlDoc.getElementsByTagName('item');
+            const articles = [];
+
+            for (let i = 0; i < Math.min(items.length, 10); i++) {
+                const item = items[i];
+                const article = {
+                    title: getXMLText(item, 'title'),
+                    description: getXMLText(item, 'description') || getXMLText(item, 'content:encoded'),
+                    link: getXMLText(item, 'link'),
+                    pubDate: getXMLText(item, 'pubDate') || getXMLText(item, 'updated'),
+                    source: feedName,
+                    sourceKey: feedKey
+                };
+
+                if (article.title && article.link) {
+                    articles.push(article);
+                }
+            }
+
+            if (articles.length > 0) {
+                return articles;
+            }
+        } catch (error) {
+            lastError = error;
+            console.warn(`Proxy ${proxyFn.name} échoué:`, error);
+            continue;
         }
     }
 
-    return articles;
+    throw lastError || new Error('Tous les proxies ont échoué');
 }
 
 /**
